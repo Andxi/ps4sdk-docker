@@ -17,6 +17,8 @@
 
    cp ps4sdk-docker.sh /usr/local/bin
 
+ OR add the directory where you cloned this repository to the $PATH
+
  ==================
   How do I use it?
  ==================
