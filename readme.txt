@@ -3,15 +3,18 @@
  ====================
 
   This program will automatically build a docker image with
-  ps4sdk and elf-loader ready to be used for homebrew development.
+  ps4sdk, elf-loader and other various tools ready to be used for homebrew development on 5.05 PS4.
 
  ====================
   How do I build it?
  ====================
 
- Build the image:
+ Open Dockerfile and change IP addresses of both your local machine and PS4.
+ This is needed for ps4sh to work.
 
-   docker build -t ps4sdk-docker .
+ Build the image (--rm flag is for cache usage):
+
+   docker build --rm==false -t ps4sdk-docker .
 
  Copy the helper script:
 
