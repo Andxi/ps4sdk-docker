@@ -8,7 +8,7 @@ ENV PS4IP=192.168.178.27
 
 RUN \
     apt-get -y update && \
-    apt-get -y install tmux build-essential clang curl git && \
+    apt-get -y install nano tmux build-essential clang curl git && \
     apt-get -y clean autoclean autoremove && \
     rm -rf /var/lib/{apt,dpkg,cache,log}/ && \
     curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
@@ -90,43 +90,43 @@ RUN \
     cd ${PS4DEV} && \
     git clone http://github.com/psxdev/ps4link && \
     cd ps4link && \
-    cd libdebugnet && \
-    make && \
-    make install && \
-    cd .. && \
-    cd libelfloader && \
-    make && \
-    make install && \
-    cd .. && \
-    cd libps4link && \
-    sed -i "s/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}/$LOCALIP/g" ${PS4DEV}/ps4link/ps4link/source/main.c && \
-    make && \
-    make install && \
-    cd .. && \
-    cd elf-loader && \
-    ./copy_ps4link_sources.sh && \
-    make && \
-    cd .. && \
+#    cd libdebugnet && \
+#    make && \
+#    make install && \
+#    cd .. && \
+#    cd libelfloader && \
+#    make && \
+#    make install && \
+#    cd .. && \
+#    cd libps4link && \
+#    sed -i "s/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}/$LOCALIP/g" ${PS4DEV}/ps4link/ps4link/source/main.c && \
+#    make && \
+#    make install && \
+#    cd .. && \
+#    cd elf-loader && \
+#    ./copy_ps4link_sources.sh && \
+#    make && \
+#    cd .. && \
     cd ps4sh && \
     sed -i -e 's/dst_ip\[16\] = ".*"/dst_ip[16] = "'$PS4IP'"/' ${PS4DEV}/ps4link/ps4sh/src/ps4sh.c && \
     make && \
     cd .. && \
     cd samples/sample && \
     make && \
-    cp bin/sample.elf ${PS4DEV}/ps4link/ps4sh/bin
+    cp bin/*.elf ${PS4DEV}/ps4link/ps4sh/bin
 
-RUN \
-    cd ${PS4DEV} && \
-    git clone https://github.com/ps4dev/elf-loader && \
-    cd elf-loader && \
-    make clean && make
+#RUN \
+#    cd ${PS4DEV} && \
+#    git clone https://github.com/ps4dev/elf-loader && \
+#    cd elf-loader && \
+#    make clean && make
 
-WORKDIR ${PS4DEV}/ps4link/elf-loader/local
-#CMD /bin/bash
-CMD /usr/bin/tmux
+#WORKDIR ${PS4DEV}/ps4link/ps4sh/bin
+CMD /bin/bash
+#CMD /usr/bin/tmux
 #CMD node server.js
 
 
-#WORKDIR /build
+WORKDIR /build
 
 #CMD node ${PS4DEV}/elf-loader/local/server.js
