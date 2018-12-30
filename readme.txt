@@ -47,3 +47,13 @@
  Load the image:
 
    docker load < bzip2 -dc ps4sdk-docker.tar.bz2
+
+ ============================
+  What else is there?
+ ============================
+
+ Orbislink.pkg is added here. Install and start it on the PS4. The ServerIP is hardcoded (I think) to 192.168.1.3,
+ so make sure the computer running PS4SH is that IP address. Else the PS4 won't be able to connect.
+
+ Also the homebrew started from that Orbislink.pkg is only homebrew.elf.
+ If assets (such as audio files) are missing when serving homebrew.elf via ps4sh you will only see a black screen via Orbislink.
