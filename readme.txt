@@ -9,7 +9,7 @@
   How do I build it?
  ====================
 
- Open Dockerfile and change IP addresses of both your local machine and PS4.
+ IMPORTANT: Open Dockerfile and change IP addresses of both your local machine and PS4. (PS4IP and LOCALIP)
  This is needed for ps4sh to work.
 
  Build the image (--rm flag is for cache usage):
@@ -26,7 +26,7 @@
   How do I use it?
  ==================
 
- Use the helper script to run elf-loader:
+ Use the helper script to run bash in the docker container:
 
    ps4sdk-docker.sh
 
@@ -35,6 +35,17 @@
    ps4sdk-docker.sh make
 
  The local folder will be mounted as /build inside docker.
+
+ There are some aliases inside the docker container available for you to use:
+
+ ps4sh      - Executes ps4sh installed
+ elfcp      - When building the homebrew.elf executable, move this file to the ps4sh directory to start serving that file.
+
+ And the following enviroment variables are available:
+
+ $PS4SH     - directory where ps4sh is installed
+ $PS4DEV    - directory where ps4dev tools are installed
+ $PS4SDK    - directory where ps4sdk is installed
 
  ============================
   How do I save and load it?
