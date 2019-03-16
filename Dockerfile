@@ -9,6 +9,7 @@ ENV PS4SH=${PS4DEV}/ps4link/ps4sh/bin
 
 RUN echo 'alias ps4sh="cd $PS4SH && ./ps4sh"' >> ~/.bashrc
 RUN echo 'alias elfcp="cp bin/*.elf $PS4SH/homebrew.elf"' >> ~/.bashrc
+RUN echo 'alias build="cd /build && make clean && make"' >> ~/.bashrc
 
 RUN echo 'verbose = yes' >> ~/.ps4shrc
 RUN echo 'debug = yes' >> ~/.ps4shrc
