@@ -3,8 +3,8 @@ MAINTAINER Naomi Peori <naomi@peori.ca>
 
 ENV PS4DEV=/usr/local/ps4dev
 ENV PS4SDK=$PS4DEV/ps4sdk
-ENV LOCALIP=192.168.1.3
-ENV PS4IP=192.168.1.5
+ENV LOCALIP=192.168.1.83
+ENV PS4IP=192.168.1.72
 ENV PS4SH=${PS4DEV}/ps4link/ps4sh/bin
 
 RUN echo 'alias ps4sh="cd $PS4SH && ./ps4sh"' >> ~/.bashrc
